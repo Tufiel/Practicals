@@ -43,6 +43,7 @@ body
 
 #picFrame
 {
+	max-width: 400px;
 	border: 10px solid orange;
 	border-image: linear-gradient(120deg,rgba(0, 128, 0, 0.302),rgba(0, 0, 255, 0.308),rgba(0, 0, 0, 0.337),rgba(128, 0, 128, 0.479)) 100 round ;
 	border-radius: 5px;
