@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practicle 2</title>
+    <link rel="stylesheet" href="p2.css" />
+  </head>
+  <body>
+    <!-- Create a document that uses multiple <BR> and <P> tags, and put returns between <PRE> tags to add blank lines to your  -->
+    <!-- document see if your browser senders them differently.  -->
+    <div id="main">
+		<video id="bgVideo" src="./bgVideo.mp4" autoplay loop></video>
+      <div id="picFrame">
+        <img src="myPic.jpg" alt="image" id="myPic" />
+        <h1 id="picName">Tufail Gulzar</h1>
+      </div>
+
+      <div id="aboutMe">
+        <p>
+          Hey folks,I'm Tufiel Gulzar, navigating the world of Computer Science
+          & Engineering at State Institute Of Engineering & Technology,
+          Nilokheri. Sporting a diploma from University Of Polytechnic Jmi, I
+          honed my PHP prowess during a 3-month internship at FTK CIT, Delhi,
+          cooking up a Library Management System. From heading projects to
+          diving into C, C++, Java, CSS, Bootstrap, MySQL, and more, I'm your
+          go-to guy. Check out my blog to witness the magic of HTML, JavaScript,
+          WordPress, PHP, C#, and more. I'm not just a coder; I'm a skillful
+          wizard in the tech realm!
+        </p>
+      </div>
+	  <br>
+	  <h1 style="text-align: center;color: black;background-color: rgba(240, 248, 255, 0.437);">
+		<pre>Web Skills (<span id="totalSkills" >7</span>)
+
+	   </pre>
+	  </h1>
+      <div id="skills">
+		
+        <div>
+			<h1>Html (<span class="mPer">10</span>%)</h1>
+        <meter class="meter" min="0" max="100" value="90"></meter>
+		</div>
+
+		<div>
+			<h1>Css (<span class="mPer">20</span>%)</h1>
+			<meter class="meter" min="0" max="100" value="80"></meter>
+		</div>
+
+		<div>
+			<h1>Js (<span class="mPer">30</span>%)</h1>
+        <meter class="meter" min="0" max="100" value="70"></meter>
+		</div>
+
+		<div>
+			<h1>Php (<span class="mPer">40</span>%)</h1>
+        <meter class="meter" min="0" max="100" value="50"></meter>
+		</div>
+
+		<div>
+			<h1>React Js (<span class="mPer">30</span>%)</h1>
+        <meter class="meter" min="0" max="100" value="30"></meter>
+		</div>
+
+    <div>
+			<h1>Wordpress (<span class="mPer">80</span>%)</h1>
+        <meter class="meter" min="0" max="100" value="80"></meter>
+		</div>
+
+    <div>
+			<h1>MySql (<span class="mPer">70</span>%)</h1>
+        <meter class="meter" min="0" max="100" value="70"></meter>
+		</div>
+       </div>
+	  <pre>
+
+
+
+
+
+
+
+	  </pre>
+    </div>
+
+    <script>
+      const m = document.querySelectorAll(".meter");
+      const mPer = document.querySelectorAll(".mPer");
+      const totalSkills = parseInt(document.querySelector('#totalSkills').textContent);
+      const max = [];
+      for(let i=0;i<totalSkills;i++)
+         max.push(m[i].value)
+      for (let i = 0; i < totalSkills; i++) 
+      m[i].value = 0;
+      function counter() {
+        let val = [];
+        for(let i=0;i<totalSkills;i++)
+         val.push(parseInt(m[i].value) + 1);
+
+        if (compareArrays(val,max,totalSkills))
+          clearInterval(counter);
+        else
+          for (let i = 0; i < totalSkills; i++)
+            if (m[i].value < max[i]) {
+              m[i].value = val[i];
+              mPer[i].textContent = val[i];
+            }
+      }
+
+      function compareArrays( a1, a2,n)
+      {
+        for(let i=0;i<n;i++)
+          if(!(a1[i]==a2[i]))
+            return false;
+        return true;
+      }
+
+      setInterval(counter, 50);
+      setInterval(() => {
+        let myPic = document.querySelector("#myPic");
+        myPic.style.transform = "translate(0px)";
+      }, 2000);
+    </script>
+  </body>
+</html>
